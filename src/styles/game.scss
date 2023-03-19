@@ -1,3 +1,28 @@
 .background {
   background: $beige;
 }
+
+.game {
+  &_title {
+    display: flex;
+
+    &-name {
+      font: 70px $coiny;
+    }
+
+    &-img {
+      width: 85px;
+      height: 100px;
+
+      &-dog {
+        width: 90px;
+        height: 100px;
+      }
+
+      &-cat {
+        width: 85px;
+        height: 100px;
+      }
+    }
+  }
+}
