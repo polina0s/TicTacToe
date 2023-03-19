@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "yarn eslint --fix --ext .js src ",
-    "format": "yarn prettier --write"
+    "lint": "yarn eslint --fix --ext .js src",
+    "format": "yarn prettier --write src",
+    "lintAndFormat": "yarn lint && yarn format"
   },
   "devDependencies": {
     "eslint": "^8.36.0",
