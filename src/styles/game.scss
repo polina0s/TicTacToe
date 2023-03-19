@@ -1,28 +1,35 @@
 .background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
   background: $beige;
 }
 
 .game {
+  width: 100%;
+  min-height: 100%;
+
   &_title {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
 
     &-name {
       font: 70px $coiny;
+      margin: 0;
+      margin-right: 15px;
+      margin-left: 15px;
     }
 
-    &-img {
-      width: 85px;
-      height: 100px;
-
-      &-dog {
-        width: 90px;
-        height: 100px;
+    &-img-dog {
+      width: 130px;
+      height: 140px;
       }
 
-      &-cat {
-        width: 85px;
-        height: 100px;
-      }
+    &-img-cat {
+      width: 120px;
+      height: 140px;
     }
   }
 }
