@@ -1,6 +1,21 @@
+include ../components/cell/cell
+
 div.background 
   div.game
     div.game_title
-      img.game_title-img-cat(src="./pictures/cat.png", alt="cat")
+      img.game_title-img--cat(src="./pictures/cat.png", alt="cat")
       p.game_title-name Tic-Tac-Toe
-      img.game_title-img-dog(src="./pictures/dog.png", alt="dog")
+      img.game_title-img--dog(src="./pictures/dog.png", alt="dog")
+    div.game_players
+      div.game_players--1
+      div.game_players--2  
+    div.game_field   
+      +cell(class="cell--tic")
+      +cell(class="cell--tac")
+      +cell
+      +cell 
+      +cell 
+      +cell 
+      +cell 
+      +cell 
+      +cell

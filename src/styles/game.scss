@@ -13,7 +13,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin: 40px 0px 40px 0px;
+
+    @include tablet {
+      margin: 30px 0px 30px 0px;
+    }
+
+    @include mobile {
+      margin: 20px 0px 20px 0px;
+    }
 
     &-name {
       font: 70px $shortStack;
@@ -31,7 +39,7 @@
     }
 
 
-    &-img-dog {
+    &-img--dog {
       width: 130px;
       height: 140px;
       
@@ -47,7 +55,7 @@
       }
 
 
-    &-img-cat {
+    &-img--cat {
       width: 120px;
       height: 140px;
 
@@ -60,6 +68,26 @@
         width: 80px;
         height: 95px;
       }
+    }
+  }
+
+  &_field {
+    width: 530px;
+    height: 530px;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+
+    @include tablet {
+      width: 470px;
+      height: 470px;
+    }
+
+    @include mobile {
+      width: 376px;
+      height: 376px;
     }
   }
 }
