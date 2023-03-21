@@ -19,6 +19,14 @@
     background-size: 100px 150px;
     background-repeat: no-repeat;
     background-position: center;
+
+    @include tablet {
+      background-size: 85px 130px;
+    }
+
+    @include mobile {
+      background-size: 65px 100px;
+    }
   }
 
   &--tac {
@@ -27,5 +35,13 @@
     background-size: 120px 150px;
     background-repeat: no-repeat;
     background-position: center;
+
+    @include tablet {
+      background-size: 105px 130px;  
+    }
+
+    @include mobile {
+      background-size: 80px 100px;
+    }
   }
 }
