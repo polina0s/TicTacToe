@@ -98,16 +98,41 @@
     margin: 0 auto;
     margin-bottom: 20px;
 
+    @include tablet {
+      width: 550px;
+    }
+
+    @include mobile {
+      width: 430px;
+      margin-bottom: 15px;
+    }
+
     &--1 {
       display: flex;
       justify-content: space-between;
       width: 230px;
+
+      @include tablet {
+        width: 205px;
+      }
+
+      @include mobile {
+        width: 180px;
+      }
     }
 
     &--2 {
       display: flex;
       justify-content: space-between;
       width: 230px;
+
+      @include tablet {
+        width: 205px;
+      }
+
+      @include mobile {
+        width: 180px;
+      }
     }
   }
 }
