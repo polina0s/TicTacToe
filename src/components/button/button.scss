@@ -1,0 +1,18 @@
+.btn {
+  font: 30px $sulphur;
+  border: none;
+
+  &--big {
+    width: 170px;
+    height: 50px;
+    border-radius: 10px;
+  }
+
+  &--beige {
+    background: $lightBeige;
+  }
+
+  &--brown {
+    background: $brown;
+  }
+}

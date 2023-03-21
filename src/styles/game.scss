@@ -90,4 +90,9 @@
       height: 376px;
     }
   }
+
+  &_players {
+    display: flex;
+    justify-content: space-between;
+  }
 }
