@@ -70,27 +70,7 @@
       }
     }
   }
-
-  &_field {
-    width: 530px;
-    height: 530px;
-    display: flex;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-
-    @include tablet {
-      width: 470px;
-      height: 470px;
-    }
-
-    @include mobile {
-      width: 376px;
-      height: 376px;
-    }
-  }
-
+  
   &_players {
     display: flex;
     justify-content: space-between;
@@ -135,4 +115,26 @@
       }
     }
   }
+
+  &_field {
+    width: 530px;
+    height: 530px;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+
+    @include tablet {
+      width: 470px;
+      height: 470px;
+    }
+
+    @include mobile {
+      width: 376px;
+      height: 376px;
+    }
+  }
+
 }
