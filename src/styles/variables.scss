@@ -4,3 +4,20 @@ $beige: #f2d5ae;
 // FONTS
 $coiny: Coiny, sans-serif;
 $shortStack: ShortStack, sans-serif;
+
+// MEDIA
+$desktop-w: 1440px;
+$tablet-w: 768px;
+$mobile-w: 375px;
+
+@mixin tablet {
+   @media screen and (max-width: $desktop-w - 1) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media screen  and (max-width: $tablet-w - 1) {
+    @content
+  }
+}
