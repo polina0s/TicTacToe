@@ -94,5 +94,20 @@
   &_players {
     display: flex;
     justify-content: space-between;
+    width: 630px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    &--1 {
+      display: flex;
+      justify-content: space-between;
+      width: 230px;
+    }
+
+    &--2 {
+      display: flex;
+      justify-content: space-between;
+      width: 230px;
+    }
   }
 }
