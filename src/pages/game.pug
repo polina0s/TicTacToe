@@ -1,5 +1,8 @@
 include ../components/cell/cell
 include ../components/button/button
+include ../containers/players/players
+include ../containers/field/field
+include ../containers/score/score
 
 div.background 
   div.game
@@ -7,22 +10,6 @@ div.background
       img.game_title-img--cat(src="./pictures/cat.png", alt="cat")
       p.game_title-name Tic-Tac-Toe
       img.game_title-img--dog(src="./pictures/dog.png", alt="dog")
-    div.game_players
-      div.game_players--1
-        +btn('player 1')(class="btn--big btn--beige")
-        +btn(class="btn--round btn--beige btn--active")
-      div.game_players--2
-        +btn(class="btn--round btn--brown btn--active")
-        +btn('player 2')(class="btn--big btn--brown")  
-    div.game_field   
-      +cell(class="cell--tic")
-      +cell(class="cell--tac")
-      +cell
-      +cell 
-      +cell 
-      +cell 
-      +cell 
-      +cell 
-      +cell
-    div.game_score 
-      include ../components/score/score
+    +players
+    +field 
+    +score

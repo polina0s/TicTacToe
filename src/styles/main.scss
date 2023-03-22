@@ -1,6 +1,12 @@
 @import "normalize.css";
 @import "./variables.scss";
 @import "./fonts.scss";
-@import "./game.scss";
+
+@import "../pages/game.scss";
+
 @import "../components/cell/cell.scss";
 @import "../components/button/button.scss";
+
+@import "../containers/players/players.scss";
+@import "../containers/field/field.scss";
+@import "../containers//score/score.scss"
