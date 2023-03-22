@@ -83,7 +83,8 @@
     }
 
     @include mobile {
-      width: 430px;
+      width: 100%;
+      max-width: 430px;
       margin-bottom: 15px;
     }
 

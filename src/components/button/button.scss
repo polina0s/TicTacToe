@@ -50,4 +50,19 @@
   &--brown {
     background: $brown;
   }
+
+  &--active {
+    background-image: url(/src/pictures/paw.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include tablet {
+      background-size: 30px;
+    }
+
+    @include mobile {
+      background-size: 27px;
+    }
+  }
 }
