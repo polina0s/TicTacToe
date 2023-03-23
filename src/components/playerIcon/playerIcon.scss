@@ -1,6 +1,9 @@
-.btn {
+.playerIcon {
   font: 30px $sulphur;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @include tablet {
     font-size: 27px;
