@@ -1,28 +1,26 @@
 import { players } from '../containers/players/players';
-
-const player = {
-  cat: 'cat',
-  dog: 'dog',
-};
-
+import { player } from '../config/player';
+import { Field } from '../containers/field/field';
 export class Game {
   constructor() {
     this.player = player.cat;
+    this.field = new Field(this.makeAMove.bind(this));
+
+    players.activateBadge(this.player);
   }
 
   togglePlayer() {
     if (this.player === player.cat) {
-      // players.disactivateBadge(cat)
       this.player = player.dog;
-      players.activateBadge(this.player);
     } else {
-      // players.disactivateBadge(dog)
       this.player = player.cat;
-      players.activateBadge(this.player);
     }
+
+    players.activateBadge(this.player);
   }
 
   makeAMove() {
-    
+    console.log(this);
+    this.togglePlayer();
   }
 }

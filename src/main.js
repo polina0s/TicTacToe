@@ -11,4 +11,6 @@ function bootstrap() {
   game.togglePlayer();
 
   console.log(game.player);
+
+  game.makeAMove();
 }

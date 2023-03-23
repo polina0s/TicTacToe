@@ -1,3 +1,5 @@
+import { player } from '../../config/player';
+
 class Players {
   constructor() {
     this.firstPlayerBadge = document.querySelector('#player--1');
@@ -5,17 +7,17 @@ class Players {
   }
 
   activateBadge(currentPlayer) {
-    if (currentPlayer === this.firstPlayerBadge) {
+    if (currentPlayer === player.cat) {
       this.disactivateBadge(this.secondPlayerBadge);
       this.firstPlayerBadge.classList.add('playerIcon--active');
     } else {
       this.disactivateBadge(this.firstPlayerBadge);
-      this.secondPlayerBadge.add('playerIcon--active');
+      this.secondPlayerBadge.classList.add('playerIcon--active');
     }
   }
 
-  disactivateBadge(player) {
-    player.classList.remove('playerIcon--active');
+  disactivateBadge(badge) {
+    badge.classList.remove('playerIcon--active');
   }
 }
 
