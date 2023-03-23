@@ -20,7 +20,6 @@ export class Game {
   }
 
   makeAMove() {
-    console.log(this);
     this.togglePlayer();
   }
 }
