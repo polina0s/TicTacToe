@@ -19,9 +19,7 @@ export class Field {
   }
 
   addDataIdForCells() {
-    this.cells.forEach((el) => {
-      el.setAttribute('data-id', makeid());
-    });
+    makeid(this.cells);
   }
 
   selectCell(prev, cell) {
