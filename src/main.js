@@ -5,12 +5,4 @@ document.addEventListener('DOMContentLoaded', bootstrap);
 
 function bootstrap() {
   const game = new Game();
-
-  console.log(game.player);
-
-  game.togglePlayer();
-
-  console.log(game.player);
-
-  game.makeAMove();
 }

@@ -3,6 +3,7 @@ import { player } from '../config/player';
 import { Field } from '../containers/field/field';
 export class Game {
   constructor() {
+    this.previousPlayer = null;
     this.player = player.cat;
     this.field = new Field(this.makeAMove.bind(this));
 
@@ -10,7 +11,9 @@ export class Game {
   }
 
   togglePlayer() {
-    if (this.player === player.cat) {
+    this.previousPlayer = this.player;
+
+    if (this.player === player.cat) {``
       this.player = player.dog;
     } else {
       this.player = player.cat;
@@ -21,5 +24,6 @@ export class Game {
 
   makeAMove() {
     this.togglePlayer();
+    return this.previousPlayer;
   }
 }

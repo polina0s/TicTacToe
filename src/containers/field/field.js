@@ -1,5 +1,6 @@
 import { makeid } from '../../lib/makeid';
-import { players } from '../players/players';
+import { player } from '../../config/player';
+
 export class Field {
   constructor(onCellClick) {
     this.cells = document.querySelectorAll('#cell');
@@ -11,8 +12,8 @@ export class Field {
   addListenerForCells(onCellClick) {
     this.cells.forEach((el) => {
       el.addEventListener('click', () => {
-        this.selectCell(this.player, el);
-        onCellClick();
+        const prev = onCellClick();
+        this.selectCell(prev, el);
       });
     });
   }
@@ -23,8 +24,8 @@ export class Field {
     });
   }
 
-  selectCell(player, cell) {
-    if (player === players.cat) {
+  selectCell(prev, cell) {
+    if (prev === player.cat) {
       cell.classList.add('cell--tic');
     } else {
       cell.classList.add('cell--tac');
