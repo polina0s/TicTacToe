@@ -37,11 +37,19 @@ export class Game {
   makeAMove(cellId) {
     this.togglePlayer();
     this.updateState(cellId, this.previousPlayer);
-    console.log(this.state);
+    console.log(this.isDraw(this.state));
     return this.previousPlayer;
   }
 
   updateState(cellId, player) {
     this.state[cellId] = player;
+  }
+
+  isDraw(obj) {
+    if (Object.values(obj).includes(null)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
