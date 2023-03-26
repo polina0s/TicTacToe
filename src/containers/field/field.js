@@ -15,6 +15,7 @@ export class Field {
       el.addEventListener('click', () => {
         const prev = onCellClick(el.id);
         this.selectCell(prev, el);
+        el.setAttribute('disabled', 'disabled');
       });
     });
   }
