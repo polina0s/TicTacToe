@@ -19,6 +19,16 @@ export class Game {
       8: null,
     };
 
+    this.winComb = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+    ];
+
     players.activateBadge(this.player);
   }
 
@@ -37,6 +47,8 @@ export class Game {
   makeAMove(cellId) {
     this.togglePlayer();
     this.updateState(cellId, this.previousPlayer);
+    const winner = this.isWin();
+    console.log(winner);
     console.log(this.isDraw(this.state));
     return this.previousPlayer;
   }
@@ -51,5 +63,27 @@ export class Game {
     } else {
       return true;
     }
+  }
+
+  isWin() {
+    let winner = null;
+
+    this.winComb.forEach((combination) => {
+      const isCat = (value) => value === player.cat;
+      const isDog = (value) => value === player.dog;
+      const cellValues = [];
+
+      for (let i = 0; i < combination.length; i++) {
+        cellValues.push(this.state[combination[i]]);
+      }
+
+      if (cellValues.every(isCat)) {
+        winner = 'cat';
+      } else if (cellValues.every(isDog)) {
+        winner = 'dog';
+      }
+    });
+
+    return winner;
   }
 }
