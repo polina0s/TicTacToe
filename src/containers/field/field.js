@@ -31,4 +31,10 @@ export class Field {
       cell.classList.add('cell--tac');
     }
   }
+
+  disableAllCells() {
+    this.cells.forEach((el) => {
+      el.setAttribute('disabled', 'disabled');
+    });
+  }
 }

@@ -47,9 +47,14 @@ export class Game {
   makeAMove(cellId) {
     this.togglePlayer();
     this.updateState(cellId, this.previousPlayer);
+
     const winner = this.isWin();
-    console.log(winner);
-    console.log(this.isDraw(this.state));
+    const draw = this.isDraw(this.state); // isGameOver
+
+    if (winner || draw) {
+      this.field.disableAllCells();
+    }
+
     return this.previousPlayer;
   }
 
@@ -86,4 +91,6 @@ export class Game {
 
     return winner;
   }
+
+  blockGame() {}
 }
