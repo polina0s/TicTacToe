@@ -3,6 +3,7 @@ include ../components/playerIcon/playerIcon
 include ../containers/players/players
 include ../containers/field/field
 include ../containers/score/score
+include ../components/modal/modal
 
 div.background 
   div.game
@@ -12,4 +13,5 @@ div.background
       img.game_title-img--dog(src="./pictures/dog.png", alt="dog")
     +players
     +field 
-    +score
+    +score 
+    +modal    
