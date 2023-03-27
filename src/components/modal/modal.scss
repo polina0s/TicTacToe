@@ -40,5 +40,17 @@
   &-btn {
     display: block;
     margin: 0 auto;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: $btnShadow;
+      transition: 0.3s;
+    }
+
+    &:active {
+      background: $lightBrown;
+      transform: translateY(3px);
+    }
+
   }
 }
