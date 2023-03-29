@@ -50,24 +50,7 @@ export class Game {
   makeAMove(cellId) {
     this.togglePlayer();
     this.updateState(cellId, this.previousPlayer);
-
-    const winner = this.isWin();
-    const draw = this.isDraw(this.state); // isGameOver
-
-    // if (winner || draw) {
-    //   this.field.disableAllCells();
-    // }
-    if (winner === 'cat') {
-      this.modal.showCatWinner();
-    }
-
-    if (winner === 'dog') {
-      this.modal.showDogWinner();
-    }
-
-    if (draw) {
-      this.modal.showDraw();
-    }
+    this.isGameOver();
 
     return this.previousPlayer;
   }
@@ -77,11 +60,7 @@ export class Game {
   }
 
   isDraw(obj) {
-    if (Object.values(obj).includes(null)) {
-      return false;
-    } else {
-      return true;
-    }
+    return !Object.values(obj).includes(null);
   }
 
   isWin() {
@@ -97,14 +76,28 @@ export class Game {
       }
 
       if (cellValues.every(isCat)) {
-        winner = 'cat';
+        winner = player.cat;
       } else if (cellValues.every(isDog)) {
-        winner = 'dog';
+        winner = player.dog;
       }
     });
 
     return winner;
   }
 
-  blockGame() {}
+  isGameOver() {
+    const winner = this.isWin();
+    const draw = this.isDraw(this.state);
+
+    if (winner === 'cat') {
+      this.modal.showCatWinner();
+      this.field.disableAllCells();
+    } else if (winner === 'dog') {
+      this.modal.showDogWinner();
+      this.field.disableAllCells();
+    } else if (draw) {
+      this.modal.showDraw();
+      this.field.disableAllCells();
+    }
+  }
 }

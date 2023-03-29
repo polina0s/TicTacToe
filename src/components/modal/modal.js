@@ -34,6 +34,8 @@ export class Modal {
     this.showModal();
   }
 
+  
+
   playAgain() {
     this.btnAgain.addEventListener('click', () => {
       location.reload();
