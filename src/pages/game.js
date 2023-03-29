@@ -1,11 +1,13 @@
 import { players } from '../containers/players/players';
 import { player } from '../config/player';
 import { Field } from '../containers/field/field';
+import { Modal } from '../components/modal/modal';
 export class Game {
   constructor() {
     this.previousPlayer = null;
     this.player = player.cat;
     this.field = new Field(this.makeAMove.bind(this));
+    this.modal = new Modal();
 
     this.state = {
       0: null,
@@ -27,6 +29,7 @@ export class Game {
       [1, 4, 7],
       [2, 5, 8],
       [0, 4, 8],
+      [2, 4, 6],
     ];
 
     players.activateBadge(this.player);
@@ -51,8 +54,19 @@ export class Game {
     const winner = this.isWin();
     const draw = this.isDraw(this.state); // isGameOver
 
-    if (winner || draw) {
-      this.field.disableAllCells();
+    // if (winner || draw) {
+    //   this.field.disableAllCells();
+    // }
+    if (winner === 'cat') {
+      this.modal.showCatWinner();
+    }
+
+    if (winner === 'dog') {
+      this.modal.showDogWinner();
+    }
+
+    if (draw) {
+      this.modal.showDraw();
     }
 
     return this.previousPlayer;

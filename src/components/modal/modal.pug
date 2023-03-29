@@ -1,6 +1,6 @@
-mixin modal()
-  div.modal-container
+mixin modal(title)
+  div.modal-container(id="modal-container" class=attributes.class)
     div.modal
-      div.modal-img
-      p.modal-text CAT IS WIN
-      +playerIcon('play again')(class="playerIcon--big playerIcon--brown modal-btn")
+      div.modal-img(id="modal-img")
+      p.modal-text(id="modal-text")=title
+      +playerIcon('play again')(class="playerIcon--big playerIcon--brown modal-btn" id="playAgain-btn")
