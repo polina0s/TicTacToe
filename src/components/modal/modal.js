@@ -23,18 +23,19 @@ export class Modal {
   }
 
   showDogWinner() {
-    this.modalText.innerHTML = this.dogText;
-    this.modalImg.classList.add('modal-img--dog');
+    this.setContent(this.dogText, 'modal-img--dog');
     this.showModal();
   }
 
   showDraw() {
-    this.modalText.innerHTML = this.drawText;
-    this.modalImg.classList.add('modal-img--draw');
+    this.setContent(this.drawText, 'modal-img--draw');
     this.showModal();
   }
 
-  
+  setContent(text, img) {
+    this.modalText.innerHTML = text;
+    this.modalImg.classList.add(img);
+  }
 
   playAgain() {
     this.btnAgain.addEventListener('click', () => {
