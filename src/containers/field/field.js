@@ -37,4 +37,11 @@ export class Field {
       el.setAttribute('disabled', 'disabled');
     });
   }
+
+  resetCellsStyles() {
+    this.cells.forEach((el) => {
+      el.removeAttribute('class');
+      el.removeAttribute('disabled');
+    });
+  }
 }

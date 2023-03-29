@@ -8,8 +8,6 @@ export class Modal {
     this.catText = 'CAT IS WIN';
     this.dogText = 'DOG IS WIN';
     this.drawText = 'DRAW';
-
-    this.playAgain();
   }
 
   showModal() {
@@ -39,7 +37,7 @@ export class Modal {
 
   playAgain() {
     this.btnAgain.addEventListener('click', () => {
-      location.reload();
+      this.modalCont.classList.remove('modal-container--active');
     });
   }
 }
