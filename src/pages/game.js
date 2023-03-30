@@ -8,6 +8,7 @@ export class Game {
     this.player = player.cat;
     this.field = new Field(this.makeAMove.bind(this));
     this.modal = new Modal();
+    this.playAgainBtn = this.modal.btnAgain;
 
     this.state = {
       0: null,
@@ -45,13 +46,13 @@ export class Game {
     }
 
     players.activateBadge(this.player);
+    this.startOver();
   }
 
   makeAMove(cellId) {
     this.togglePlayer();
     this.updateState(cellId, this.previousPlayer);
     this.isGameOver();
-
     return this.previousPlayer;
   }
 
@@ -99,5 +100,20 @@ export class Game {
       this.modal.showDraw();
       this.field.disableAllCells();
     }
+  }
+
+  resetState() {
+    let curState = this.state;
+    for (let key in curState) {
+      curState[key] = null;
+    }
+  }
+
+  startOver() {
+    this.playAgainBtn.addEventListener('click', () => {
+      this.field.resetCellsStyles();
+      this.resetState();
+      this.modal.hideModal();
+    });
   }
 }

@@ -40,7 +40,7 @@ export class Field {
 
   resetCellsStyles() {
     this.cells.forEach((el) => {
-      el.removeAttribute('class');
+      el.classList.remove('cell--tic', 'cell--tac');
       el.removeAttribute('disabled');
     });
   }

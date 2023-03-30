@@ -35,9 +35,12 @@ export class Modal {
     this.modalImg.classList.add(img);
   }
 
-  playAgain() {
-    this.btnAgain.addEventListener('click', () => {
-      this.modalCont.classList.remove('modal-container--active');
-    });
+  hideModal() {
+    this.modalCont.classList.remove('modal-container--active');
+    this.modalImg.classList.remove(
+      'modal-img--cat',
+      'modal-img--dog',
+      'modal-img--draw'
+    );
   }
 }
