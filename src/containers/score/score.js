@@ -4,10 +4,12 @@ export class Score {
   constructor() {
     this.cat = document.querySelector('.score--1');
     this.dog = document.querySelector('.score--2');
+    this.resetScoreBtn = document.querySelector('.score_reset_btn');
 
     this.score = scoreStorage.getScore();
-
     this.insertScore();
+
+    this.resetScoreBtn.addEventListener('click', this.resetScore.bind(this));
   }
 
   increaseScore(winner) {
@@ -24,5 +26,11 @@ export class Score {
   insertScore() {
     this.cat.innerHTML = this.score.cat;
     this.dog.innerHTML = this.score.dog;
+  }
+
+  resetScore() {
+    scoreStorage.clearStorage();
+    this.score = scoreStorage.getScore();
+    this.insertScore();
   }
 }

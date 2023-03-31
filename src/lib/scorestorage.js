@@ -1,5 +1,3 @@
-import { Score } from '../containers/score/score';
-
 class ScoreStorage {
   constructor() {
     this.getScore();
@@ -15,6 +13,10 @@ class ScoreStorage {
   setScore(score) {
     const stringified = JSON.stringify(score);
     localStorage.setItem(this.name, stringified);
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 }
 
