@@ -3,6 +3,7 @@ import { player } from '../config/player';
 import { INITIAL_STATE, WIN_COMBO } from '../config/game';
 import { Field } from '../containers/field/field';
 import { Modal } from '../components/modal/modal';
+import { Score } from '../containers/score/score';
 export class Game {
   constructor() {
     this.previousPlayer = null;
@@ -10,6 +11,7 @@ export class Game {
 
     this.field = new Field(this.makeAMove.bind(this));
     this.modal = new Modal(this.startOver.bind(this));
+    this.score = new Score();
   }
 
   togglePlayer() {
