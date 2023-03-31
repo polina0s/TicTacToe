@@ -1,3 +1,5 @@
+import { player } from '../../config/player';
+
 export class Score {
   constructor() {
     this.cat = document.querySelector('.score--1');
@@ -10,11 +12,12 @@ export class Score {
   }
 
   increaseScore(winner) {
-    if (winner === 'cat') {
+    if (winner === player.cat) {
       this.catScore++;
-    } else if (winner === 'dog') {
+    } else if (winner === player.dog) {
       this.dogScore++;
     }
+    this.insertScore();
   }
 
   insertScore() {

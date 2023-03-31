@@ -30,6 +30,7 @@ export class Game {
     this.togglePlayer();
     this.updateState(cellId, this.previousPlayer);
     this.isGameOver();
+
     return this.previousPlayer;
   }
 
@@ -68,6 +69,7 @@ export class Game {
     const draw = this.isDraw(this.state);
 
     if (winner) {
+      this.score.increaseScore(winner);
       this.modal.showWinner(winner);
       this.field.disableAllCells();
     } else if (draw) {
