@@ -1,5 +1,7 @@
+import { player } from '../../config/player';
+
 export class Modal {
-  constructor() {
+  constructor(onPlayAgainClick) {
     this.modalCont = document.querySelector('#modal-container');
     this.modalImg = document.querySelector('#modal-img');
     this.modalText = document.querySelector('#modal-text');
@@ -8,6 +10,8 @@ export class Modal {
     this.catText = 'CAT IS WIN';
     this.dogText = 'DOG IS WIN';
     this.drawText = 'DRAW';
+
+    this.btnAgain.addEventListener('click', onPlayAgainClick);
   }
 
   showModal() {
@@ -15,14 +19,21 @@ export class Modal {
   }
 
   showCatWinner() {
-    this.modalText.innerHTML = this.catText;
-    this.modalImg.classList.add('modal-img--cat');
+    this.setContent(this.catText, 'modal-img--cat');
     this.showModal();
   }
 
   showDogWinner() {
     this.setContent(this.dogText, 'modal-img--dog');
     this.showModal();
+  }
+
+  showWinner(winner) {
+    if (winner === player.cat) {
+      this.showCatWinner();
+    } else {
+      this.showDogWinner();
+    }
   }
 
   showDraw() {

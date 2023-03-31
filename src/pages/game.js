@@ -1,39 +1,15 @@
 import { players } from '../containers/players/players';
 import { player } from '../config/player';
+import { INITIAL_STATE, WIN_COMBO } from '../config/game';
 import { Field } from '../containers/field/field';
 import { Modal } from '../components/modal/modal';
 export class Game {
   constructor() {
     this.previousPlayer = null;
-    this.player = player.cat;
+    this.setInitialData();
+
     this.field = new Field(this.makeAMove.bind(this));
-    this.modal = new Modal();
-    this.playAgainBtn = this.modal.btnAgain;
-
-    this.state = {
-      0: null,
-      1: null,
-      2: null,
-      3: null,
-      4: null,
-      5: null,
-      6: null,
-      7: null,
-      8: null,
-    };
-
-    this.winComb = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    players.activateBadge(this.player);
+    this.modal = new Modal(this.startOver.bind(this));
   }
 
   togglePlayer() {
@@ -46,7 +22,6 @@ export class Game {
     }
 
     players.activateBadge(this.player);
-    this.startOver();
   }
 
   makeAMove(cellId) {
@@ -67,7 +42,7 @@ export class Game {
   isWin() {
     let winner = null;
 
-    this.winComb.forEach((combination) => {
+    WIN_COMBO.forEach((combination) => {
       const isCat = (value) => value === player.cat;
       const isDog = (value) => value === player.dog;
       const cellValues = [];
@@ -90,11 +65,8 @@ export class Game {
     const winner = this.isWin();
     const draw = this.isDraw(this.state);
 
-    if (winner === 'cat') {
-      this.modal.showCatWinner();
-      this.field.disableAllCells();
-    } else if (winner === 'dog') {
-      this.modal.showDogWinner();
+    if (winner) {
+      this.modal.showWinner(winner);
       this.field.disableAllCells();
     } else if (draw) {
       this.modal.showDraw();
@@ -103,17 +75,18 @@ export class Game {
   }
 
   resetState() {
-    let curState = this.state;
-    for (let key in curState) {
-      curState[key] = null;
-    }
+    this.state = { ...INITIAL_STATE };
+  }
+
+  setInitialData() {
+    this.resetState();
+    this.player = player.cat;
+    players.activateBadge(this.player);
   }
 
   startOver() {
-    this.playAgainBtn.addEventListener('click', () => {
-      this.field.resetCellsStyles();
-      this.resetState();
-      this.modal.hideModal();
-    });
+    this.setInitialData();
+    this.field.resetCellsStyles();
+    this.modal.hideModal();
   }
 }
