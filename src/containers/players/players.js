@@ -9,15 +9,15 @@ class Players {
   activateBadge(currentPlayer) {
     if (currentPlayer === player.cat) {
       this.disactivateBadge(this.secondPlayerBadge);
-      this.firstPlayerBadge.classList.add('playerIcon--active');
+      this.firstPlayerBadge.classList.add('btn--active');
     } else {
       this.disactivateBadge(this.firstPlayerBadge);
-      this.secondPlayerBadge.classList.add('playerIcon--active');
+      this.secondPlayerBadge.classList.add('btn--active');
     }
   }
 
   disactivateBadge(badge) {
-    badge.classList.remove('playerIcon--active');
+    badge.classList.remove('btn--active');
   }
 }
 

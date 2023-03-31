@@ -1,8 +1,8 @@
 mixin players()
   div.game_players
     div.game_players--1
-      +playerIcon('player 1')(class="playerIcon--big playerIcon--beige")
-      +playerIcon(class="playerIcon--round playerIcon--beige" id="player--1")
+      +btn('player 1')(class="btn--big btn--beige")
+      +btn(class="btn--round btn--beige" id="player--1")
     div.game_players--2
-      +playerIcon(class="playerIcon--round playerIcon--brown" id="player--2")
-      +playerIcon('player 2')(class="playerIcon--big playerIcon--brown")  
+      +btn(class="btn--round btn--brown" id="player--2")
+      +btn('player 2')(class="btn--big btn--brown")  
