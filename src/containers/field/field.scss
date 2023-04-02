@@ -1,5 +1,6 @@
 .game_field {
-    width: 530px;
+    max-width: 530px;
+    width: 100%;
     height: 530px;
     display: flex;
     margin: 0 auto;
@@ -7,15 +8,16 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
+    gap: 8px;
 
     @include tablet {
-      width: 470px;
+      max-width: 470px;
       height: 470px;
       margin-bottom: 20px;
     }
 
     @include mobile {
-      width: 376px;
+      max-width: 376px;
       height: 376px;
       margin-bottom: 10px;
     }
